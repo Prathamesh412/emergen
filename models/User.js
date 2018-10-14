@@ -4,8 +4,7 @@ var UserSchema= new mongoose.Schema({
     name:String,
     email:String,
     phone:Number,
-    message:String,
-    attachment:String
+    message:String
 });
 
 

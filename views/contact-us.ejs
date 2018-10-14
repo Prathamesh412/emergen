@@ -29,7 +29,7 @@
                          <br class="clear" />
 
                          <!-- ***********************Form code********************* -->
-                        <h4 class="enquery">Quick Enquiry</h4>
+                        <!-- <h4 class="enquery">Quick Enquiry</h4>
                   		<script src="code.jquery.com/jquery-1.9.1.min.js"></script>
 						<script src="www.zumvu.com/zsscn-313715747900.js"></script>
                         <div id="zv_cnt_warp">
@@ -42,8 +42,41 @@
                         <div><input type="submit" value="SUBMIT" id="zcvbt" /></div>
                         </form>
                         <span id="zvcer"></span>
-                        </div>
-                     </div> 
+                        </div> -->
+                        <!-- Default form contact -->
+                        <form class="text-center border border-light p-5" method="POST" action="send">
+
+                                <p class="h4 mb-4">Contact us</p>
+                            
+                                <!-- Name -->
+                                <input type="text" id="FormName" class="form-control mb-4" placeholder="Name" name="name" required>
+                            
+                                <!-- Email -->
+                                <input type="email" id="FormEmail" class="form-control mb-4" placeholder="E-mail" name="email" required>
+                            
+                                <input type="text" id="FormContact" class="form-control mb-4" placeholder="Contact No" name="phone" required>
+                            
+                                <!-- Message -->
+                                <div class="form-group">
+                                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5" placeholder="Message" name="message" required></textarea>
+                                </div>
+                                <!-- Attachment -->
+                                <!-- <div class="form-group">
+                                    <label for="name">Document Upload:</label>
+                                    <input type="file" class="form-control" id="image" name="attachment" >
+                                </div> -->
+                                <!-- Copy -->
+                                <!-- <div class="custom-control custom-checkbox mb-4">
+                                    <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+                                    <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+                                </div> -->
+                            
+                                <!-- Send button -->
+                                <button class="btn btn-info btn-block" type="submit">Send</button>
+                            
+                            </form>
+    <!-- Email form end -->
+                    </div>  
 			</div>	
 		</div>
 	</div>
