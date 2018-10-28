@@ -44,9 +44,11 @@
                         <span id="zvcer"></span>
                         </div> -->
                         <!-- Default form contact -->
-                        <form class="text-center border border-light p-5" method="POST" action="send">
+                        <form class="text-center border border-light p-5" method="POST" action="send" enctype="multipart/form-data">
 
-                                <p class="h4 mb-4">Contact us</p>
+                                <p class="h4 mb-4" style="color: #ff8609;font-weight: bold;
+                                font-size: 28px;
+                                padding-top: 30px;">Contact us</p>
                             
                                 <!-- Name -->
                                 <input type="text" id="FormName" class="form-control mb-4" placeholder="Name" name="name" required>
@@ -61,10 +63,10 @@
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5" placeholder="Message" name="message" required></textarea>
                                 </div>
                                 <!-- Attachment -->
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="name">Document Upload:</label>
-                                    <input type="file" class="form-control" id="image" name="attachment" >
-                                </div> -->
+                                    <input type="file" class="form-control" id="image" name="image" >
+                                </div>
                                 <!-- Copy -->
                                 <!-- <div class="custom-control custom-checkbox mb-4">
                                     <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
@@ -72,7 +74,7 @@
                                 </div> -->
                             
                                 <!-- Send button -->
-                                <button class="btn btn-info btn-block" type="submit">Send</button>
+                                <button class="btn btn-warning btn-block" type="submit">Send</button>
                             
                             </form>
     <!-- Email form end -->

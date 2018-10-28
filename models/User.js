@@ -4,7 +4,8 @@ var UserSchema= new mongoose.Schema({
     name:String,
     email:String,
     phone:Number,
-    message:String
+    message:String,
+    image: { data: Buffer, contentType: String }
 });
 
 

@@ -1,4 +1,6 @@
 var express = require("express");
+var multer = require('multer');
+var path = require('path');
 var app = express ();
 app.set("view engine", "ejs");
 var mongoose= require("mongoose");
@@ -8,8 +10,25 @@ var smtpTransport = require('nodemailer-smtp-transport');
 
 var User=require("./models/User");
 
+// Multer image start
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, './public/uploads/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname); //replace is used to save in computer readable format
+    }
+  });
 
-console.log("The database url is" + process.env.DATABASE_URL);
+const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024 * 5
+    }
+});
+// Multer stop
+
+//console.log("The database url is" + process.env.DATABASE_URL);
 //mongoose.connect("mongodb://localhost/emergen");    //connect to local database
 mongoose.connect("mongodb://emergenadmin:emergen123@ds255260.mlab.com:55260/emergen") //mongolab cloud connect
 //mongoose.connect("mongodb://admin:admin123@ds151892.mlab.com:51892/yelpcamp_db") //mongolab cloud connect
@@ -49,14 +68,18 @@ app.get("/",function(req,res){
     res.render("index");
 });
 
-app.post('/send', (req, res) => {
+var imageName;
+var uploadFile = upload.single('image');
+app.post('/send', uploadFile, (req, res) => {
 
     var name = req.body.name;
     var email = req.body.email;
     var phone = req.body.phone;
     var message = req.body.message;
+    var image = req.file.originalname;
+    console.log(req.file.originalname);
     //console.log(name,image);
-    var newUser= {name:name,email:email,phone:phone,message:message};
+    var newUser= {name:name,email:email,phone:phone,message:message,image:image};
 
     User.create(newUser,function(err,newCreatedUser){
         if(err){
@@ -75,6 +98,7 @@ app.post('/send', (req, res) => {
         <li>Name: ${req.body.name}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
+        <li>Phone: ${req.file.path}</li>
       </ul>
       <h3>Message</h3>
       <p>${req.body.message}</p>
