@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+        <h1>This is the image page</h1>
+        <p><a href="/" class="btn btn-primary btn-large">GO TO main Page</a></p>
+        </div>
+    </header> 
+
+
+<div class="row">
+<% users.forEach(function(user){ %>
+    <div class="col-md-4 col-sm-6">
+        <div class="img-thumbnail">
+            <img src="uploads/<%=user.image%>" class="img-responsive" alt="image" width="100%" height="auto">
+                <div class="caption">
+                    <h4><%= user.name %></h4>
+                    <h4><%= user.email %></h4>
+                    <h4><%= user.phone %></h4>
+                    <h4><%= user.message %></h4>
+                </div>
+                <p>
+                    <a href="/aryan1993/<%= user._id %>" class="btn btn-primary">More Info</a>
+                </p>
+        </div>
+    </div>
+<% }); %>
+</div>
+
+</div>
+<% include partials/footer %>

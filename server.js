@@ -40,6 +40,7 @@ app.use(express.static(__dirname + '/public'));
 //app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(robots({UserAgent: '*', Disallow: '/'})) //robot.txt to stop crawling
 
 //****************ROUTES********************
 
@@ -68,6 +69,29 @@ app.get("/",function(req,res){
     res.render("index");
 });
 
+app.get("/aryan1993",function(req,res){
+    User.find({},function(err,alluser){
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.render("imagelist",{users:alluser})
+        }
+    })
+});
+
+app.get("/aryan1993/:id",function(req,res){ 
+    User.findById(req.params.id,function(err,foundOneUser){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("singleupload",{user:foundOneUser});
+         //  console.log(user);
+        }
+    })
+});
+
 var imageName;
 var uploadFile = upload.single('image');
 app.post('/send', uploadFile, (req, res) => {
@@ -76,8 +100,8 @@ app.post('/send', uploadFile, (req, res) => {
     var email = req.body.email;
     var phone = req.body.phone;
     var message = req.body.message;
-    var image = req.file.originalname;
-    console.log(req.file.originalname);
+    var image = req.file.filename;
+    console.log(req.file);
     //console.log(name,image);
     var newUser= {name:name,email:email,phone:phone,message:message,image:image};
 
@@ -92,13 +116,13 @@ app.post('/send', uploadFile, (req, res) => {
 
     // Mailer implementation
     var output = `
-      <p>You have a new Contact Request from Emergen Website</p>
+      <p>You have a new Contact Request from Energen Website</p>
       <h3>Contact Details</h3>
       <ul>  
         <li>Name: ${req.body.name}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
-        <li>Phone: ${req.file.path}</li>
+        <li>image: ${req.file.path}</li>
       </ul>
       <h3>Message</h3>
       <p>${req.body.message}</p>
@@ -111,7 +135,7 @@ app.post('/send', uploadFile, (req, res) => {
         host: 'smtp.gmail.com',
         auth: {
           user: 'cechque@gmail.com',
-          pass: 'asd@1234'
+          pass: 'qwerty@123'
         }, tls:{
             rejectUnauthorized:false  // remove when uploading on server
           }
@@ -120,7 +144,7 @@ app.post('/send', uploadFile, (req, res) => {
       var mailOptions = {
         from: 'cechque@gmail.com',
         to: 'prathprabhu@gmail.com',
-        subject: 'New Enquiry for Emergen',
+        subject: 'New Enquiry for Energen',
         text: 'That was easy!',
         html: output
       };
