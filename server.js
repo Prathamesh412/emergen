@@ -30,7 +30,7 @@ const upload = multer({
 
 //console.log("The database url is" + process.env.DATABASE_URL);
 //mongoose.connect("mongodb://localhost/emergen");    //connect to local database
-mongoose.connect("mongodb://emergenadmin:emergen123@ds255260.mlab.com:55260/emergen") //mongolab cloud connect
+mongoose.connect("mongodb://emergenadmin:emergen123@ds255260.mlab.com:55260/emergen",{ useNewUrlParser: true }) //mongolab cloud connect
 //mongoose.connect("mongodb://admin:admin123@ds151892.mlab.com:51892/yelpcamp_db") //mongolab cloud connect
 var bodyParser = require('body-parser');
 
@@ -40,7 +40,7 @@ app.use(express.static(__dirname + '/public'));
 //app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(robots({UserAgent: '*', Disallow: '/'})) //robot.txt to stop crawling
+// app.use(robots({UserAgent: '*', Disallow: '/'})) //robot.txt to stop crawling
 
 //****************ROUTES********************
 
@@ -69,14 +69,25 @@ app.get("/",function(req,res){
     res.render("index");
 });
 
-app.get("/aryan1993",function(req,res){
-    User.find({},function(err,alluser){
+app.get("/aryan1993/images/:page",function(req,res){
+
+    var perPage = 2;
+    var page = req.params.page || 1;
+   // console.log(page)
+    User.find({}).skip((perPage * page) - perPage)
+    .limit(perPage)
+    .exec(function(err,alluser){
+        User.countDocuments().exec(function(err,count){
         if(err){
             console.log(err)
         }
         else{
-            res.render("imagelist",{users:alluser})
+            res.render("imagelist",{users:alluser,
+                current: page,
+                pages: Math.ceil(count / perPage)})
         }
+      //  console.log(count)
+        })
     })
 });
 
@@ -122,7 +133,7 @@ app.post('/send', uploadFile, (req, res) => {
         <li>Name: ${req.body.name}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
-        <li>image: ${req.file.path}</li>
+        <li>image: ${req.file.filename}</li>
       </ul>
       <h3>Message</h3>
       <p>${req.body.message}</p>

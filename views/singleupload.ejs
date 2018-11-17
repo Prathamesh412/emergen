@@ -1,17 +1,23 @@
-<p style="margin-top: 80px">List of images</p>
+<head>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<h2 style="margin-top: 50px;padding-left: 25px;">Document from <%= user.name %> </h2>
 
 <div class="col-md-9">
     <div class="thumbnail">
         <img class="img-responsive" src="/uploads/<%=user.image%>">
         <div class="caption-full">
-            <h4><%= user.name %></h4>
-                    <h4><%= user.email %></h4>
-                    <h4><%= user.phone %></h4>
-            <h4><%= user.message %></h4>
+                <h4><b>Name:-</b> <%= user.name %></h4>
+                <h4><b>Email:-</b> <%= user.email %></h4>
+                <h4><b>Phone:-</b> <%= user.phone %></h4>
+                <h4><b>Message:-</b> <%= user.message %></h4>
+                <h4><b>Date:-</b> <%= user._id.getTimestamp()%></h4>
         </div>
     </div>
 </div>
 
 <p>
-    <a href="/aryan1993" class="btn btn-primary">Back to image listing</a>
+    <a href="/aryan1993/images/1" class="btn btn-primary">Back to image listing</a>
+    <a href="/" class="btn btn-primary">Back to home page</a>
 </p>
