@@ -137,6 +137,10 @@ app.get("/quality",function(req,res){
 app.get("/",function(req,res){
     res.render("index");
 });
+app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /aryan1993/ \nDisallow: /uploads ");
+});
 
 app.get("/aryan1993/images/:page",function(req,res){
 
