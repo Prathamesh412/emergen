@@ -12,69 +12,69 @@ var User=require("./models/User"); //model imported.
 
 
 //login with passport starts
-const passport = require('passport')
-const bcrypt = require('bcrypt')
-const LocalStrategy = require('passport-local').Strategy
+// const passport = require('passport')
+// const bcrypt = require('bcrypt')
+// const LocalStrategy = require('passport-local').Strategy
 
-const loginuser = {
-  username: 'test',
-  passwordHash: 'test',
-  id: 1
-}
-function findUser (username, callback) {
-    if (username === loginuser.username) {
-      return callback(null, loginuser)
-    }
-    return callback(null)
-  }
+// const loginuser = {
+//   username: 'test',
+//   passwordHash: 'test',
+//   id: 1
+// }
+// function findUser (username, callback) {
+//     if (username === loginuser.username) {
+//       return callback(null, loginuser)
+//     }
+//     return callback(null)
+//   }
   
-  passport.serializeUser(function (loginuser, cb) {
-    cb(null, loginuser.username)
-  })
+//   passport.serializeUser(function (loginuser, cb) {
+//     cb(null, loginuser.username)
+//   })
   
-  passport.deserializeUser(function (username, cb) {
-    findUser(username, cb)
-  })
+//   passport.deserializeUser(function (username, cb) {
+//     findUser(username, cb)
+//   })
   
-  function initPassport () {
-    passport.use(new LocalStrategy(
-      (username, password, done) => {
-        findUser(username, (err, loginuser) => {
-          if (err) {
-            return done(err)
-          }
+//   function initPassport () {
+//     passport.use(new LocalStrategy(
+//       (username, password, done) => {
+//         findUser(username, (err, loginuser) => {
+//           if (err) {
+//             return done(err)
+//           }
   
-          // User not found
-          if (!loginuser) {
-            console.log('User not found')
-            return done(null, false)
-          }
+//           // User not found
+//           if (!loginuser) {
+//             console.log('User not found')
+//             return done(null, false)
+//           }
   
-          // Always use hashed passwords and fixed time comparison
-          bcrypt.compare(password, loginuser.passwordHash, (err, isValid) => {
-            if (err) {
-              return done(err)
-            }
-            if (!isValid) {
-              return done(null, false)
-            }
-            return done(null, loginuser)
-          })
-        })
-      }
-    ))
-}
+//           // Always use hashed passwords and fixed time comparison
+//           bcrypt.compare(password, loginuser.passwordHash, (err, isValid) => {
+//             if (err) {
+//               return done(err)
+//             }
+//             if (!isValid) {
+//               return done(null, false)
+//             }
+//             return done(null, loginuser)
+//           })
+//         })
+//       }
+//     ))
+// }
   
-passport.authenticationMiddleware = authenticationMiddleware
+// passport.authenticationMiddleware = authenticationMiddleware
 
-function authenticationMiddleware () { // passport middleware
-    return function (req, res, next) {
-      if (req.isAuthenticated()) {
-        return next()
-      }
-      res.redirect('/')
-    }
-  }
+// function authenticationMiddleware () { // passport middleware
+//     return function (req, res, next) {
+//       if (req.isAuthenticated()) {
+//         return next()
+//       }
+//       res.redirect('/')
+//     }
+//   }
 // login with passport ends
 
 // Multer image start
@@ -289,4 +289,4 @@ app.get('*', function(req, res) {
 });
 
 
-app.listen(process.env.PORT || 3000, () => console.log('App listening on port 3000!'));
+app.listen(process.env.PORT || 80, () => console.log('Energen App started'));
