@@ -268,7 +268,7 @@ app.post('/send', uploadFile, (req, res) => {
       
       var mailOptions = {
         from: 'cechque@gmail.com',
-        to: 'prathprabhu@gmail.com',
+        to: 'info@energenltd.com',
         subject: 'New Enquiry for Energen',
         text: 'That was easy!',
         html: output
