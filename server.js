@@ -4,12 +4,12 @@ var path = require('path');
 var app = express ();
 app.set("view engine", "ejs");
 var mongoose= require("mongoose");
-var router = express.Router();
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
 var User=require("./models/User"); //model imported.
 
+const ABSPATH = path.dirname(process.mainModule.filename); // Path of the location of where project is situated
 
 //login with passport starts
 // const passport = require('passport')
@@ -119,6 +119,20 @@ app.get("/about",function(req,res){
 app.get("/contact-us",function(req,res){
     res.render("contact-us");
 });
+// Aryan product routes start
+app.get("/earth-rods",function(req,res){
+  res.render("earth-rods");
+});
+app.get("/copper-tapes",function(req,res){
+  res.render("copper-tapes");
+});
+app.get("/busbar",function(req,res){
+  res.render("busbar");
+});
+app.get("/copper-profiles",function(req,res){
+  res.render("copper-profiles");
+});
+// Aryan product routes ends
 app.get("/copper-foils",function(req,res){
     res.render("copper-foils");
 });
@@ -203,16 +217,12 @@ app.post('/send', uploadFile, (req, res) => {
     var email = req.body.email;
     var phone = req.body.phone;
     var message = req.body.message;
-   // console.log("The length is" + req.file.filename.length)
-   // console.log(req.file)
     if (req.file){
     var image = req.file.filename
     }
     else{
         var image = "null"
     }
-    console.log(image);
-    //console.log(name,image);
     var newUser= {name:name,email:email,phone:phone,message:message,image:image};
 
     User.create(newUser,function(err,newCreatedUser){
@@ -220,7 +230,7 @@ app.post('/send', uploadFile, (req, res) => {
             console.log(err);
         }
         else{
-            console.log(newCreatedUser);
+            console.log("New User created");
         }
     })
 
@@ -234,7 +244,7 @@ app.post('/send', uploadFile, (req, res) => {
         <li>Name: ${req.body.name}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
-        <li>image: ${req.file.filename}</li>
+        <li>Document: ${req.file.filename}</li>
       </ul>
       <h3>Message</h3>
       <p>${req.body.message}</p>
@@ -254,7 +264,7 @@ app.post('/send', uploadFile, (req, res) => {
       <p>${req.body.message}</p>
     `;
     }   //
-  
+
     var transporter = nodemailer.createTransport(smtpTransport({
         service: 'gmail',
         host: 'smtp.gmail.com',
@@ -266,13 +276,31 @@ app.post('/send', uploadFile, (req, res) => {
           }
       }));
       
+      if(req.file){
       var mailOptions = {
         from: 'cechque@gmail.com',
         to: 'info@energenltd.com',
+        //to: ['prathprabhu@gmail.com','cechque@gmail.com'], //for multiple emails
+        subject: 'New Enquiry for Energen',
+        text: 'That was easy!',
+        attachments: [
+          {
+           path: ABSPATH + '/public/uploads/'+`${req.file.filename}`
+          }
+       ],
+        html: output
+      };
+     }
+     else{
+      var mailOptions = {
+        from: 'cechque@gmail.com',
+        to: 'info@energenltd.com',
+        //to: ['prathprabhu@gmail.com','cechque@gmail.com'], //for multiple emails
         subject: 'New Enquiry for Energen',
         text: 'That was easy!',
         html: output
       };
+     }
       
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
