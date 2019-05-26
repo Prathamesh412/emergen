@@ -120,30 +120,37 @@ app.get("/contact-us",function(req,res){
     res.render("contact-us");
 });
 // Aryan product routes start
-app.get("/earth-rods",function(req,res){
-  res.render("earth-rods");
-});
-app.get("/copper-tapes",function(req,res){
-  res.render("copper-tapes");
-});
-app.get("/busbar",function(req,res){
-  res.render("busbar");
-});
-app.get("/copper-profiles",function(req,res){
-  res.render("copper-profiles");
-});
+// app.get("/earth-rods",function(req,res){
+//   res.render("earth-rods");
+// });
+// app.get("/copper-tapes",function(req,res){
+//   res.render("copper-tapes");
+// });
+// app.get("/busbar",function(req,res){
+//   res.render("busbar");
+// });
+// app.get("/copper-profiles",function(req,res){
+//   res.render("copper-profiles");
+// });
 // Aryan product routes ends
-app.get("/copper-foils",function(req,res){
-    res.render("copper-foils");
-});
-app.get("/copper-tube-pipes",function(req,res){
-    res.render("copper-tube-pipes");
-});
-app.get("/copper-nugget",function(req,res){
-    res.render("copper-nugget");
-});
-app.get("/copper-wires-rods",function(req,res){
-    res.render("copper-wires-rods");
+
+//  Old Routes Start 
+// app.get("/copper-foils",function(req,res){
+//     res.render("copper-foils");
+// });
+// app.get("/copper-tube-pipes",function(req,res){
+//     res.render("copper-tube-pipes");
+// });
+// app.get("/copper-nugget",function(req,res){
+//     res.render("copper-nugget");
+// });
+// app.get("/copper-wires-rods",function(req,res){
+//     res.render("copper-wires-rods");
+// });
+// Old ROutes Ends
+
+app.get("/products",function(req,res){
+  res.render("products");
 });
 app.get("/quality",function(req,res){
     res.render("quality");
