@@ -195,9 +195,9 @@ section.module.parallax-1 {
 .index-pro-area ul li{ display:inline-block; margin:0px 2.2%; vertical-align: top; position:relative; top:-75px;}
 /* .index-pro-area ul li{ display:inline-block; width:12%; margin:0px 2.2%; vertical-align: top; position:relative; top:-75px; margin-bottom:-75px;} */
 .index-pro-area ul li div{  width:100%; overflow:hidden; display:block; border:7px solid #e9dad4; background:#000; position:relative; transition:1s;
--webkit-border-radius: 100%;
--moz-border-radius: 100%;
-border-radius: 100%;
+/* -webkit-border-radius: 100%; Aryan circle changes
+-moz-border-radius: 100%; */
+/* border-radius: 100%; */
 }
 
 .index-pro-area ul li div img{ /*width:300px; height:140px;*/ display:block;}
