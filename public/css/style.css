@@ -215,7 +215,7 @@ border-radius: 100%;
 .index-contact-area > div > div > div{ float:left; font-family: 'Lato', sans-serif; font-size:15px; font-weight:bold;}
 .index-contact-area > div > div > div:before{content: "\f095"; font-family: 'FontAwesome'; font-size:20px; font-weight:normal; border-radius:100%; border:2px solid; padding: 7px 10px; margin-right:10px;}
 .index-contact-area > div > div > div >i{font-family: 'Lato', sans-serif; font-size:15px; font-weight:bold;}
-.index-contact-area > div > div > div > div >i:before{content: "\f232"; font-family: 'FontAwesome'; font-size:20px; font-weight:normal; border-radius:100%; border:2px solid; padding: 7px 11px 7px 7px; margin-right:10px;}
+.whatsapp:before{content: "\f232" !important; font-family: 'FontAwesome'; font-size:20px; font-weight:normal; border-radius:100%; border:2px solid; padding: 7px 11px 7px 7px; margin-right:10px;}
 .index-contact-area > div > div > div >i > a:hover{text-decoration: none;color: #ba974e !important;-webkit-transition: background-color 1s;-moz-transition: background-color 1s;-o-transition: background-color 1s;-ms-transition: background-color 1s;transition: background-color 1s;}
 
 .index-contact-area > div > div > div:last-child{ float:right;}	
