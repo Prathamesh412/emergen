@@ -200,11 +200,16 @@ section.module.parallax-1 {
 /* border-radius: 100%; */
 }
 
+.index-product-hw{
+    width: 100%;
+    height: 100%;
+}
+
 .index-pro-area ul li div img{ /*width:300px; height:140px;*/ display:block;}
 .index-pro-area ul li div > a:hover img{opacity: 0.4; filter: alpha(opacity=70);}
 .index-pro-area ul li div:after{ content: "\+"; font-family: 'FontAwesome'; position:absolute; top:-100%; font-size:50px; font-weight:normal; left:40%; color:#fff; transition:1s;}
 .index-pro-area ul li div:hover:after{ top:45%;}
-.index-pro-area ul li h4{ display:block; margin:25px 0 15px; font-size:15px; text-transform:capitalize; color:#675b56; font-weight:normal; text-align:center;}
+.index-pro-area ul li h4{ display:block; margin:15px 0 15px; font-size:15px; text-transform:capitalize; color:#675b56; font-weight:normal; text-align:center;}
 .index-pro-area ul li:hover h4{ color:#ff5200;}
 
 
@@ -284,11 +289,6 @@ ul.content-nav li{ float:left; clear:both; line-height:28px;}
 ul.content-nav li > strong { width: 120px; float: left; font-size:13px;}
 ul.content-nav li > strong:before{ content: "\f0da"; font-family: 'FontAwesome'; font-size:14px;  margin-right: 10px; color:#ff7300;}
 ul.content-nav li > p{ display:block; float:left;}
-
-
-
-
-
 
 
 .inner-bg-area > div > div > .lft-panel{ display:block; overflow:hidden; width:72%; float:left; margin-left:15px;}
@@ -456,39 +456,6 @@ ul.csr-nav li img{ width:100%; float:left;}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*------------------------------------*\
     Media Queries
 \*------------------------------------*/
@@ -550,11 +517,7 @@ ul.csr-nav li img{ width:100%; float:left;}
 	.investor-area > .investor-rit-area{ float:left; width:96%;}
 	
 	ul.csr-nav li{ width:45%;}
-	
-
 }
-
-
 
 @media (max-width: 720px){
 
