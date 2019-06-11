@@ -163,57 +163,57 @@ app.get('/robots.txt', function (req, res) {
     res.send("User-agent: *\nDisallow: /aryan1993/ \nDisallow: /uploads ");
 });
 
-app.get("/aryan1993/images/:page",function(req,res){
+// app.get("/aryan1993/images/:page",function(req,res){
 
-    var perPage = 10;
-    var page = req.params.page || 1;
-   // console.log(page)
-    User.find({}).skip((perPage * page) - perPage)
-    .limit(perPage)
-   // .sort({ 'user._id.getTimestamp()' : -1})  //sort needs to be done
-    .exec(function(err,alluser){
-        User.countDocuments().exec(function(err,count){
-        if(err){
-            console.log(err)
-        }
-        else{
-            res.render("imagelist",{users:alluser,
-                current: page,
-                pages: Math.ceil(count / perPage)})
-        }
-      //  console.log(count)
-        })
-    })
-});
+//     var perPage = 10;
+//     var page = req.params.page || 1;
+//    // console.log(page)
+//     User.find({}).skip((perPage * page) - perPage)
+//     .limit(perPage)
+//    // .sort({ 'user._id.getTimestamp()' : -1})  //sort needs to be done
+//     .exec(function(err,alluser){
+//         User.countDocuments().exec(function(err,count){
+//         if(err){
+//             console.log(err)
+//         }
+//         else{
+//             res.render("imagelist",{users:alluser,
+//                 current: page,
+//                 pages: Math.ceil(count / perPage)})
+//         }
+//       //  console.log(count)
+//         })
+//     })
+// });
 
-app.get("/aryan1993/:id",function(req,res){ 
-    User.findById(req.params.id,function(err,foundOneUser){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.render("singleupload",{user:foundOneUser});
-         //  console.log(user);
-        }
-    })
-});
+// app.get("/aryan1993/:id",function(req,res){ 
+//     User.findById(req.params.id,function(err,foundOneUser){
+//         if(err){
+//             console.log(err);
+//         }
+//         else{
+//             res.render("singleupload",{user:foundOneUser});
+//          //  console.log(user);
+//         }
+//     })
+// });
 
-app.get("/login",function(req,res,){ 
-       res.render("login");
-});
+// app.get("/login",function(req,res,){ 
+//        res.render("login");
+// });
 
-app.post('/login',function(req,res,next){
-    console.log("loginuser")
-    passport.authenticate("local", function(err, loginuser, info){
-        console.log(loginuser)
-        if(err){
-            res.redirect("/")
-        }
-        else{
-            res.redirect("/aryan1993/images/:page")
-        }
-   })
-})
+// app.post('/login',function(req,res,next){
+//     console.log("loginuser")
+//     passport.authenticate("local", function(err, loginuser, info){
+//         console.log(loginuser)
+//         if(err){
+//             res.redirect("/")
+//         }
+//         else{
+//             res.redirect("/aryan1993/images/:page")
+//         }
+//    })
+// })
 
 
 var imageName;
