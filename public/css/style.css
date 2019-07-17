@@ -460,7 +460,9 @@ ul.csr-nav li img{ width:100%; float:left;}
     Media Queries
 \*------------------------------------*/
 
-
+@media (min-width: 1200px){
+	.banner-area{margin-top: 195px;}
+}
 
 @media (max-width: 1200px){
 	
@@ -469,7 +471,10 @@ ul.csr-nav li img{ width:100%; float:left;}
 	.header-area{ min-height:auto;}
 	.men-area{ top:0px; margin-bottom:0px; padding:15px 8px 0;}
 	.men-area > a{ display:block; float:none; margin:10px auto; text-align:center;}
-	.banner-area{ top:0px; margin-bottom:15px;}
+	.banner-area{ top: 0px;
+		margin-bottom: 0px;
+		margin-top: 100px;
+		padding-top: 20px;}
 	.index-box-area{ top:0px; margin-bottom:0px;}
 	.news-area{ padding:30px;}
 	/*.index-pro-area ul li div img { height:118px;}*/

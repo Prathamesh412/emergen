@@ -40,17 +40,94 @@
     height: 0;    
     left:0;
     bottom:0px; /*Change this to increase/decrease distance*/
-		border-bottom: 2px solid #b87333;
+	border-bottom: 2px solid #b87333;
 }
 .navbar-default .navbar-nav>li>a:hover{
 	background-color: #b87333
+}
+.tagline-small{
+	display: none;
+}
+
+@media (min-width: 720px){
+.tagline-class{padding-left: 200px;}
+.tagline-small{
+	display: none;
+}
+.tagline-large{
+	display: block;
+	padding-top: 35px;
+}
+.tagline-375{
+	display: none;
+}
+.tagline-ipad{
+	display: none;
+  }
+.navbar-image{
+	margin-top: 22px;
+}
+}
+@media (max-width: 720px){
+.tagline-small{
+	display: block;
+	margin-left: 15px;
+}
+.navbar-brand {padding: 0!important}
+.tagline-large{
+	display: none;
+}
+.tagline-375{
+	display: none;
+}
+.tagline-ipad{
+	display: none;
+  }
+}
+@media only screen and (device-width: 768px) {
+  .tagline-ipad{
+	display: block;
+	padding: 15px 0 0 25px !important;
+	margin-top: 35px;
+  }
+  .tagline-large{
+	display: none;
+  }
+}
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+	.tagline-375{
+	display: block;
+	padding: 15px 0 0 !important;	
+	margin-left:15px;
+}
+.tagline-small{
+	display: none;
+}
+}
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+	.tagline-class {
+    padding-left:25px !important
+}
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) 
+and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
+{
+.tagline-small{
+	display: none;
+}
 }
 </style>
 </head>
 
 <body>
 	<div class="container">
-		<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 0 30px;background: #111111;">
+		<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 0 30px;background: #000000;">
 				<div class="container-fluid">
 				  <!-- Brand and toggle get grouped for better mobile display -->
 				  <div class="navbar-header">
@@ -60,11 +137,14 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><img src="images/factory-images/energen-logo.jpg" alt="" /></a>
-				  </div>
-			  
+					<a class="navbar-brand navbar-image" href="/"><img src="images/factory-images/logo.jpg" alt="" /></a>
+					<a class="navbar-brand tagline-class tagline-small" href="/"><img src="images/factory-images/tagline-small.jpg" alt="" /></a>
+					<a class="navbar-brand tagline-class tagline-large" href="/"><img src="images/factory-images/tagline-large.jpg" alt="" /></a>
+					<a class="navbar-brand tagline-class tagline-375" href="/"><img src="images/factory-images/tagline-375.jpg" alt="" /></a>
+					<a class="navbar-brand tagline-class tagline-ipad" href="/"><img src="images/factory-images/tagline-ipad.jpg" alt="" /></a>
+				</div>
 				  <!-- Collect the nav links, forms, and other content for toggling -->
-				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 40px;">
 					<ul class="nav navbar-nav navbar-right" style="font-size: 18px;">
 							<li><a href="/" class="pratham">Home<span class="sr-only">(current)</span></a></li>
 					  <li><a href="/about" class="pratham">About us</a></li>
