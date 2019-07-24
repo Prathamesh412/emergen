@@ -50,7 +50,10 @@
 }
 
 @media (min-width: 720px){
-.tagline-class{padding-left: 200px;}
+.tagline-class{
+	/* padding-left: 200px; */
+	margin-top: 12px;
+	}
 .index-carousel{padding-top: 162px;}
 .tagline-small{
 	display: none;
@@ -95,6 +98,9 @@
   .tagline-large{
 	display: none;
   }
+  .ipad-nav-font{
+	font-size: 18px !important;
+  }
 }
 @media only screen 
     and (device-width : 375px) 
@@ -113,9 +119,9 @@
   and (min-width: 1024px) 
   and (max-height: 1366px) 
   and (-webkit-min-device-pixel-ratio: 1.5) {
-	.tagline-class {
+	/* .tagline-class {
     padding-left:25px !important
-}
+} */
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) 
 and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
@@ -140,14 +146,14 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
 					  <span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand navbar-image" href="/"><img src="images/factory-images/logo.jpg" alt="" /></a>
-					<a class="navbar-brand tagline-class tagline-small" href="/"><img src="images/factory-images/tagline-small.jpg" alt="" /></a>
+					<a class="navbar-brand tagline-class tagline-small" style="margin-top: 20px;" href="/"><img src="images/factory-images/tagline-small.jpg" alt="" /></a>
 					<a class="navbar-brand tagline-class tagline-large" href="/"><img src="images/factory-images/tagline-large.jpg" alt="" /></a>
 					<a class="navbar-brand tagline-class tagline-375" href="/"><img src="images/factory-images/tagline-375.jpg" alt="" /></a>
 					<a class="navbar-brand tagline-class tagline-ipad" href="/"><img src="images/factory-images/tagline-ipad.jpg" alt="" /></a>
 				</div>
 				  <!-- Collect the nav links, forms, and other content for toggling -->
 				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 40px;">
-					<ul class="nav navbar-nav navbar-right" style="font-size: 18px;">
+					<ul class="nav navbar-nav navbar-right ipad-nav-font" style="font-size: 24px;">
 							<li><a href="/" class="pratham">Home<span class="sr-only">(current)</span></a></li>
 					  <li><a href="/about" class="pratham">About us</a></li>
 						<li><a href="/quality" class="pratham">Quality</a></li>
