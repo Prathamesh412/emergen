@@ -44,8 +44,11 @@
                                 <!-- Email -->
                                 <input type="email" id="FormEmail" class="form-control mb-4" placeholder="E-mail" name="email" required>
                             
-                                <input type="text" id="FormContact" class="form-control mb-4" placeholder="Contact No" name="phone" required>
+                                <input type="number" min="0" oninput="validity.valid||(value='')" id="FormContact" class="form-control mb-4" placeholder="Contact No" name="phone" required>
                             
+                                <input type="text" id="FormContact" class="form-control mb-4" placeholder="Organisation" name="organisation" required>
+
+                                <input type="text" id="FormContact" class="form-control mb-4" placeholder="Designation" name="designation" required>
                                 <!-- Message -->
                                 <div class="form-group">
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5" placeholder="Message" name="message" required></textarea>

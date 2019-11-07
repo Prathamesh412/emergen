@@ -223,6 +223,8 @@ app.post('/send', uploadFile, (req, res) => {
     var name = req.body.name;
     var email = req.body.email;
     var phone = req.body.phone;
+    var designation = req.body.designation;
+    var organisation = req.body.organisation;
     var message = req.body.message;
     if (req.file){
     var image = req.file.filename
@@ -230,7 +232,7 @@ app.post('/send', uploadFile, (req, res) => {
     else{
         var image = "null"
     }
-    var newUser= {name:name,email:email,phone:phone,message:message,image:image};
+    var newUser= {name:name,email:email,phone:phone,message:message,image:image,organisation:organisation,designation:designation};
 
     User.create(newUser,function(err,newCreatedUser){
         if(err){
@@ -251,6 +253,8 @@ app.post('/send', uploadFile, (req, res) => {
         <li>Name: ${req.body.name}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
+        <li>Designation: ${req.body.designation}</li>
+        <li>Organisation: ${req.body.organisation}</li>
         <li>Document: ${req.file.filename}</li>
       </ul>
       <h3>Message</h3>
@@ -266,6 +270,8 @@ app.post('/send', uploadFile, (req, res) => {
         <li>Name: ${req.body.name}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
+        <li>Designation: ${req.body.designation}</li>
+        <li>Organisation: ${req.body.organisation}</li>
       </ul>
       <h3>Message</h3>
       <p>${req.body.message}</p>
@@ -277,7 +283,7 @@ app.post('/send', uploadFile, (req, res) => {
         host: 'smtp.gmail.com',
         auth: {
           user: 'cechque@gmail.com',
-          pass: 'qwerty@123'
+          pass: 'polly@19)4'
         }, tls:{
             rejectUnauthorized:false  // remove when uploading on server
           }
@@ -287,6 +293,7 @@ app.post('/send', uploadFile, (req, res) => {
       var mailOptions = {
         from: 'cechque@gmail.com',
         to: 'info@energenltd.com',
+        //to: 'info@energenltd.com',
         //to: ['prathprabhu@gmail.com','cechque@gmail.com'], //for multiple emails
         subject: 'New Enquiry for Energen',
         text: 'That was easy!',

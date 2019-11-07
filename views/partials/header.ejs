@@ -28,6 +28,8 @@
 		namespace: "centered-btns"
 		});
 	});
+
+	
 </script>
 <style>
 .pratham{
@@ -99,7 +101,10 @@
 	display: none;
   }
   .ipad-nav-font{
-	font-size: 18px !important;
+	font-size: 14px !important;
+  }
+  .navbar-right{
+	margin-right: -40px !important;
   }
 }
 @media only screen 
@@ -123,6 +128,43 @@
     padding-left:25px !important
 } */
 }
+/* Use below for changing query to mobile view */
+/* @media (max-width: 1024px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 30px;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+} */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) 
 and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
 {
@@ -130,6 +172,7 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
 	display: none;
 }
 }
+
 </style>
 </head>
 
@@ -153,9 +196,9 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
 				</div>
 				  <!-- Collect the nav links, forms, and other content for toggling -->
 				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 40px;">
-					<ul class="nav navbar-nav navbar-right ipad-nav-font" style="font-size: 24px;">
-							<li><a href="/" class="pratham">Home<span class="sr-only">(current)</span></a></li>
-					  <li><a href="/about" class="pratham">About us</a></li>
+					<ul class="nav navbar-nav navbar-right ipad-nav-font" style="font-size: 24px; margin-right: -40px;">
+						<li><a href="/" class="pratham">Home<span class="sr-only">(current)</span></a></li>
+					    <li><a href="/about" class="pratham">About us</a></li>
 						<li><a href="/quality" class="pratham">Quality</a></li>
 						<li><a href="/products" class="pratham">Products</a></li>
 					  <!-- <li class="dropdown">
@@ -167,8 +210,8 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
 						  <li><a href="/copper-profiles" class="pratham">Copper Profiles</a></li>
 						</ul>
 					  </li> -->
-					  <li><a href="/contact-us" class="pratham">Contact Us</a></li>
-						<!-- <li><a href="tweet.pdf" target="_blank" download="tweet.pdf" class="pratham">Download</a></li> -->
+					  	<li><a href="/contact-us" class="pratham">Contact Us</a></li>
+						<li><a href="catalogue.pdf" target="_blank" download="catalogue.pdf" class="pratham">Download</a></li>
 						<!-- remove download="" if you want to remove the download and view content in browser -->
 					</ul>
 				  </div><!-- /.navbar-collapse -->
