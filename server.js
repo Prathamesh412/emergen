@@ -97,7 +97,7 @@ const upload = multer({
 
 //console.log("The database url is" + process.env.DATABASE_URL);
 //mongoose.connect("mongodb://localhost/emergen");    //connect to local database
-mongoose.connect("mongodb://emergenadmin:emergen123@ds255260.mlab.com:55260/emergen",{ useNewUrlParser: true }) //mongolab cloud connect
+mongoose.connect("mongodb://emergenadmin:emergen123@ds255260.mlab.com:55260/emergen",{ useNewUrlParser: true ,useUnifiedTopology: true}) //mongolab cloud connect
 //mongoose.connect("mongodb://admin:admin123@ds151892.mlab.com:51892/yelpcamp_db") //mongolab cloud connect
 var bodyParser = require('body-parser');
 
